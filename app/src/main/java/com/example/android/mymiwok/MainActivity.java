@@ -14,16 +14,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NumbersclickListener numbersclickListener= new NumbersclickListener();
+        //setting onclick listener with much fewer code lines.
+        //note that we changed the category label in android manifest file so it
+        // shows Numbers im stead of the app name when the numbers activity opens.
 
         TextView numbersTextview = (TextView) findViewById(R.id.numbers);
 
-        numbersTextview.setOnClickListener(numbersclickListener);
-    }
+        numbersTextview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (MainActivity.this,NumbersMainActivity.class);
+                startActivity(intent);
+            }
+        });
 
-//    public void openNumbersList (View view){
-//        //Now on click the numbers screen opens (via xml onClick & java intent to start numbers)
-//        Intent intent = new Intent (this, NumbersMainActivity.class);
-//        startActivity(intent);
-//    }
+    }
 }
