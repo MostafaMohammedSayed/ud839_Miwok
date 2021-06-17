@@ -40,14 +40,9 @@ public class NumbersMainActivity extends AppCompatActivity {
         //added array adapter to optimize memory usage by the app
         //forgot to say we totally changed the layout of Numbers in the xml file
 
+        ArrayAdapter <String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1,words);
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-
-        GridView gridView = (GridView) findViewById(R.id.list);
-
-        //for experimenting replacing ListView with GridView to observe the difference
-        gridView.setAdapter(itemsAdapter);
-        gridView.setColumnWidth(60);
-        gridView.setNumColumns(2);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(arrayAdapter);
     }
 }
