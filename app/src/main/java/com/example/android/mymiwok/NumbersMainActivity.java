@@ -37,6 +37,7 @@ public class NumbersMainActivity extends AppCompatActivity {
         words.add("ten");
 
         //added array adapter to optimize memory usage by the app
+        //forgot to say we totally changed the layout of Numbers in the xml file
 
 
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
