@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,17 +36,13 @@ public class NumbersMainActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        LinearLayout rootView = findViewById(R.id.rootView);
+        //added array adapter to optimize memory usage by the app
 
-        //using a for loop we add all the views and their text data to the root View(LinearLayout)
 
-        int index;
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 
-        for(index=0;index<words.size();++index){
-            TextView textView = new TextView(this);
-            textView.setText(words.get(index));
-            rootView.addView(textView);
-        }
+        ListView listView = (ListView) findViewById(R.id.list);
 
+        listView.setAdapter(itemsAdapter);
     }
 }
