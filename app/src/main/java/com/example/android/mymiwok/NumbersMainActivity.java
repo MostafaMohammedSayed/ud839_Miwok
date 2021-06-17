@@ -36,9 +36,15 @@ public class NumbersMainActivity extends AppCompatActivity {
 
         LinearLayout rootView = findViewById(R.id.rootView);
 
-        TextView textView = new TextView(this);
-        textView.setText(words.get(0));
-        rootView.addView(textView);
+        //using a for loop we add all the views and their text data to the root View(LinearLayout)
+
+        int index;
+
+        for(index=0;index<words.size();++index){
+            TextView textView = new TextView(this);
+            textView.setText(words.get(index));
+            rootView.addView(textView);
+        }
 
     }
 }
