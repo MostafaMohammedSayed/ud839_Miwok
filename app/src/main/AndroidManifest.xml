@@ -12,7 +12,8 @@
         <activity android:name=".PhrasesActivity"></activity>
         <activity android:name=".ColorsActivity" />
         <activity android:name=".FamilyActivity" />
-        <activity android:name=".NumbersMainActivity" />
+        <activity android:name=".NumbersMainActivity"
+            android:label="@string/category_numbers"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
