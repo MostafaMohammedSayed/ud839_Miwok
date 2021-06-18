@@ -3,12 +3,7 @@ package com.example.android.mymiwok;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,7 +13,7 @@ public class NumbersMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(R.layout.activity_numbers_main);
+        setContentView(R.layout.word_list);
 
         //creating an ArrayList of the data we want to display in Numbers Activity then
         //adding first data item in a TextView then making this Text view a child of
