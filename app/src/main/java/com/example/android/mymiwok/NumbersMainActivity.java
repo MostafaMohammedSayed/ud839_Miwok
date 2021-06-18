@@ -37,15 +37,12 @@ public class NumbersMainActivity extends AppCompatActivity {
         words.add(new Word("nine","wo'e"));
         words.add(new Word("ten","na'aacha"));
 
+
         //added array adapter to optimize memory usage by the app
         //forgot to say we totally changed the layout of Numbers in the xml file
 
-        ArrayAdapter <Word> arrayAdapter = new ArrayAdapter<String> (this,R.layout.list_item,words);
-        //but the previous line gives a compiler error that says that the arrayAdapter different constructors
-        //do no match with the parameters that we provided, the problem seems to be in the last parameter (words)
-        //as the error says the constructor takes an ArrayList<String> not ArrayList<words>. Looks like we are
-        //gonna improvise and make our own adapter (To be Continued...)
+        WordAdapter adapter = new WordAdapter (this,words);
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(adapter);
     }
 }

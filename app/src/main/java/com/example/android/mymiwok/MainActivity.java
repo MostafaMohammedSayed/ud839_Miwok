@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         //setting on click listeners for other categories
 
-        TextView family = (TextView) findViewById(R.id.family);
-        family.setOnClickListener(new View.OnClickListener() {
+        TextView familyTextView = findViewById(R.id.family);
+        familyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,FamilyActivity.class);
+                Intent intent= new Intent(MainActivity.this,FamilyActivity.class);
                 startActivity(intent);
             }
         });
