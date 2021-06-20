@@ -7,19 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
+
+    private int backGroundColor;
+
     //first our own constructor so that we replace the super class constructor, this is done
     // to provide a view with 2 textviews instead of the single-text View provided by
     // the super class constructor
-    public WordAdapter(Activity context, ArrayList<Word> words){
-        super(context,0,words);
+    public WordAdapter(Activity context, ArrayList<Word> words, int color) {
+        super(context, 0, words);
+        this.backGroundColor = color;
     }
 
     //now we will override the method getView so that i returns the customized view we want
@@ -33,7 +39,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
 
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
@@ -45,8 +51,19 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTextView.setText(currentWord.getMiwokTranslation());
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         defaultTextView.setText(currentWord.getmDefalultTranslayion());
+
+        View translation = listItemView.findViewById(R.id.translation);
+        int color = ContextCompat.getColor(getContext(), backGroundColor);
+        translation.setBackgroundColor(color);
+
         ImageView imageImageView = (ImageView) listItemView.findViewById(R.id.image_image_view);
-        imageImageView.setImageResource(currentWord.getmImageResourceId());
+
+        if (currentWord.hasImage()) {
+            imageImageView.setImageResource(currentWord.getmImageResourceId());
+            imageImageView.setVisibility(View.VISIBLE);
+        } else {
+            imageImageView.setVisibility(View.GONE);
+        }
 
         return listItemView;
 

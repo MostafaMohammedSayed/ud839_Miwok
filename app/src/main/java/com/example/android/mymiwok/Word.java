@@ -6,16 +6,20 @@ package com.example.android.mymiwok;
 public class Word {
     private String mDefalultTranslayion;
     private String mMiwokTranslation;
-    private int mImageResourceId;
+    private static final int NOIMAGEPROVIDED=-1;
+    private int mImageResourceId = NOIMAGEPROVIDED;
+    private int mAudioResourceId;
 
-    public Word(String defalultTranslayion,String iwokTranslation){
+    public Word(String defalultTranslayion,String iwokTranslation,int AudioResourceId){
         this.mDefalultTranslayion =defalultTranslayion;
         this.mMiwokTranslation =iwokTranslation;
+        this.mAudioResourceId=AudioResourceId;
     }
-    public Word(String defalultTranslayion,String iwokTranslation,int ImageResourceId){
+    public Word(String defalultTranslayion,String iwokTranslation,int ImageResourceId,int AudioResourceId){
         this.mDefalultTranslayion =defalultTranslayion;
         this.mMiwokTranslation =iwokTranslation;
         this.mImageResourceId=ImageResourceId;
+        this.mAudioResourceId=AudioResourceId;
     }
 
     public  void setmDefalultTranslayion (String defalultTranslayion){
@@ -40,5 +44,13 @@ public class Word {
 
     public int getmImageResourceId() {
         return mImageResourceId;
+    }
+
+    public boolean hasImage(){
+         return mImageResourceId != NOIMAGEPROVIDED;
+    }
+
+    public int getmAudioResourceId(){
+        return mAudioResourceId;
     }
 }
